@@ -19,18 +19,17 @@ const style = tv({
   defaultVariants: {
     variant: 'primary',
     size: 'md',
+    children: 'Button',
   },
 });
 
 type TButton = VariantProps<typeof style>;
 interface Props extends TButton, ComponentPropsWithRef<'button'> {}
 
-const Button = (props: Props) => {
+export const Button = (props: Props) => {
   return (
     <button {...props} className={twMerge(style({ ...props }), props.className)}>
       {props.children}
     </button>
   );
 };
-
-export default Button;

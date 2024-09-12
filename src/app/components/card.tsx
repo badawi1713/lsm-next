@@ -9,12 +9,10 @@ const style = tv({
 type TCard = VariantProps<typeof style>;
 interface Props extends TCard, ComponentPropsWithRef<'div'> {}
 
-const Card = (props: Props) => {
+export const Card = (props: Props) => {
   return (
     <div {...props} className={twMerge(style({ ...props }), props.className)}>
       {props.children}
     </div>
   );
 };
-
-export default Card;
