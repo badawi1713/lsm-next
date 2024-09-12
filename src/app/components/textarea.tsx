@@ -8,11 +8,15 @@ const style = tv({
   base: 'py-3 block w-full rounded-lg border border-slate-200 bg-white px-4 font-semibold shadow-md shadow-slate-100 transition duration-200',
 });
 
-type TInput = VariantProps<typeof style>;
-interface Props extends TInput, ComponentPropsWithRef<'input'> {}
+type TTextarea = VariantProps<typeof style>;
+interface Props extends TTextarea, ComponentPropsWithRef<'textarea'> {}
 
-const Input = (props: Props) => {
-  return <input {...props} className={twMerge(style({ ...props }), props.className)} />;
+const Textarea = (props: Props) => {
+  return (
+    <textarea {...props} className={twMerge(style({ ...props }), props.className)}>
+      {props.children}
+    </textarea>
+  );
 };
 
-export default Input;
+export default Textarea;
